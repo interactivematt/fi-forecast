@@ -29,7 +29,27 @@ section{
 
 .Forecast{
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
+}
+
+.modal-container{
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal{
+  margin: auto;
+  width: 80vw;
+  height: auto;
+  min-height: 256px;
+  background: gray;
+  text-align: center;
 }
 
 label, input{
@@ -105,4 +125,11 @@ a:visited{
 
 @media (prefers-color-scheme: light) {
   body   { background: white; color:  #555; }
+}
+
+/* Responsive */
+@media screen and (min-width: 768px) {
+  .Forecast{
+    grid-template-columns: 1fr 2fr;
+  }
 }

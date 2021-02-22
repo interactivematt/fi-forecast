@@ -15,10 +15,6 @@ export default class Forecast extends React.Component{
   render(){
     return(
       <>
-        <button  onClick={e => {
-              this.showModal();
-         }}
-          > Show Modal </button>
         <Modal 
           onClose={this.showModal}
           show={this.state.show}
@@ -26,7 +22,6 @@ export default class Forecast extends React.Component{
           Some Modal Content
         </Modal>
         <section className="Forecast">
-          
           <Editor></Editor>
           <Detail onClick={this.showModal} show={this.state.show}></Detail>
         </section>
