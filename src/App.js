@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { React, Component } from 'react';
+import Forecast from './Forecast/Forecast'
+import Welcome from './Welcome/Welcome'
+import { Route } from 'react-router-dom'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  renderPages(){
+    return(
+      <>
+        <Route
+          exact
+          path='/'
+          component={Welcome}
+        />
+        <Route
+          path='/forecast'
+          component={Forecast}
+        />
+      </>
+    )
+  }
+
+  render(){
+    return (
+      <main className='App'>
+        {/* content goes here */}
+        <header><h1><a href="/">FI Forecast</a></h1></header>
+        {this.renderPages()}
+      </main>
+    );
+  }
 }
 
 export default App;
