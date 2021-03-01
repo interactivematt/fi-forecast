@@ -45,7 +45,6 @@ export default class Editor extends React.Component{
     .catch(error => {
       console.error(error)
     })
-    console.log(`${newForecast}`)
   }
 
   render(){
