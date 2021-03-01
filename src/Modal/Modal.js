@@ -18,7 +18,7 @@ export default class Modal extends React.Component {
           <span className="number">{this.props.number}</span>
           <h2>{this.props.card.title}</h2>
           <p>{this.props.card.content}</p>
-          <button onClick={this.onClose}>Close</button>
+          <button onClick={this.onClose}>CLOSE</button>
         </div>
       </div>
     )}
