@@ -44,8 +44,9 @@ section{
 }
 
 .modal{
-  margin: auto;
+  margin: 96px auto auto;
   width: 80vw;
+  max-width: 480px;
   height: auto;
   min-height: 256px;
   background: white;
@@ -100,9 +101,10 @@ a.large{
 
 a.card:hover{
   border: 1px solid blue;
+  cursor: pointer;
 }
 
-.insight{
+.number{
   display: block;
   font-size: 3rem;
   font-weight: 700;
@@ -117,7 +119,8 @@ a:visited{
   color: ;
 }
 
-/* Light/Dark Mode */
+/* Light/Dark Mode 
+
 @media (prefers-color-scheme: dark) {
   a{color: lightblue;}
   body  { background:  #333; color: white; }
@@ -126,6 +129,9 @@ a:visited{
 @media (prefers-color-scheme: light) {
   body   { background: white; color:  #555; }
 }
+
+*/
+
 
 /* Responsive */
 @media screen and (min-width: 768px) {
