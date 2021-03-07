@@ -36,29 +36,32 @@ export default class Forecast extends React.Component{
       subtitle: e.currentTarget.firstChild.outerText,
       number: e.currentTarget.lastChild.outerText
     });
-    
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/cards/${card_id}`, {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-          'Authorization': `Bearer ${config.API_KEY}`
-        }
-      })
-    ])
-      .then(([cardsRes]) => {
-        if(!cardsRes.ok) {
-          return cardsRes.json().then(e => Promise.reject(e))
-        }
-        return Promise.all([cardsRes.json()])
-      })
-      .then(([card]) => {
-        this.setState({ card })
-      })
-      .catch(error => {
-        console.error({ error })
-        this.setState({ error })
-      })
+    if(`${card_id}` >= 1){
+      Promise.all([
+        fetch(`${config.API_ENDPOINT}/cards/${card_id}`, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${config.API_KEY}`
+          }
+          })
+        ])
+        .then(([cardsRes]) => {
+          if(!cardsRes.ok) {
+            return cardsRes.json().then(e => Promise.reject(e))
+          }
+          return Promise.all([cardsRes.json()])
+        })
+        .then(([card]) => {
+          this.setState({ card })
+        })
+        .catch(error => {
+          console.error({ error })
+          this.setState({ error })
+        })
+    } else {
+      console.log('No card_id')
+    }
   };
   
   addForecast = newForecast => {
