@@ -60,7 +60,7 @@ export default class Forecast extends React.Component{
           this.setState({ error })
         })
     } else {
-      console.log('No card_id')
+      console.log('Modal closed.')
     }
   };
   
