@@ -64,6 +64,7 @@ class App extends Component {
   }
 
   render(){
+
     const value = {
       /* context of default forecast on load */
       forecast: this.state.forecast
@@ -72,7 +73,11 @@ class App extends Component {
       <ApiContext.Provider value={value}>
         <main className='App'>
           {/* content goes here */}
-          <header><h1><a href="/">FI Forecast</a></h1></header>
+          <header>
+            <div className="container">
+              <h3 className='title'><a href="/">FI Forecast</a></h3>
+            </div>
+          </header>
           {this.renderPages()}
         </main>
       </ApiContext.Provider>

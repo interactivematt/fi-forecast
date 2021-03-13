@@ -13,12 +13,14 @@ export default class Modal extends React.Component {
     
     return (
       <div className="modal-container" onClick={this.onClose}>
-        <div className="modal">
-          <h4>{this.props.subtitle}</h4>
-          <span className="number">{this.props.number}</span>
-          <h2>{this.props.card.title}</h2>
-          <p>{this.props.card.content}</p>
-          <button onClick={this.onClose}>CLOSE</button>
+        <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <span class="material-icons-sharp feature">{this.props.card.icon}</span>
+          <div className="detail">
+            <h3>{this.props.card.title}</h3>
+            <h1 className="number">{this.props.num}</h1>
+            <p>{this.props.card.content}</p>
+          </div>
+          <button onClick={this.onClose} className="close"><span className="material-icons-sharp x">close</span></button>
         </div>
       </div>
     )}
