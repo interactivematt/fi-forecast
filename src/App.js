@@ -11,14 +11,14 @@ class App extends Component {
 
   state = {
     forecast: {
-      current_age: '',
-      net_income: '',
-      income_increase: '',
-      current_spending: '',
-      current_savings: '',
-      future_spending: '',
-      input_roi: '',
-      input_withdrawal_rate: ''
+      current_age: 30,
+      net_income: 65000,
+      income_increase: 4,
+      current_spending: 49000,
+      current_savings: 52700,
+      future_spending: 40000,
+      input_roi: 8,
+      input_withdrawal_rate: 4
     }
   }
 

@@ -14,7 +14,7 @@ export default class Modal extends React.Component {
     return (
       <div className="modal-container" onClick={this.onClose}>
         <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <span class="material-icons-sharp feature">{this.props.card.icon}</span>
+          <span className="material-icons-sharp feature">{this.props.card.icon}</span>
           <div className="detail">
             <h3>{this.props.card.title}</h3>
             <h1 className="number">{this.props.num}</h1>
@@ -25,8 +25,3 @@ export default class Modal extends React.Component {
       </div>
     )}
 }
-
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired
-};

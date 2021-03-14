@@ -12,7 +12,6 @@ export default class Results extends React.Component{
 
   render(){
     const showModal = this.props.showModal
-    
     const current_age = this.props.forecast.current_age
     const net_income = this.props.forecast.net_income
     const income_increase = this.props.forecast.income_increase
@@ -56,8 +55,23 @@ export default class Results extends React.Component{
     const fi_year = (fi_age-current_age)+parseInt(new Date().getFullYear())
     const fi_percent = ((current_savings/savings_needed)*100).toFixed(2)
 
-    const str_fi_age = fi_age + ' years old'
-    const str_fi_year = fi_year
+    let str_fi_age = fi_age + ' years old'
+    let str_fi_year = fi_year
+    if (isNaN(fi_age) == false){
+      str_fi_age = fi_age + ' years old'
+    } else {
+      str_fi_age = '?'
+    }
+    if (isNaN(fi_year) == false){
+      str_fi_year = fi_year
+    } else {
+      str_fi_year = '?'
+    }
+    
+    if(str_fi_age === '?' || str_fi_year === '?' || fi_age < current_age){
+      alert('Some of your numbers look a little off. This may happen if your spending is higher than your income.')
+    }
+    
     const str_fi_percent = fi_percent + '%'
     const str_savings_needed = '$' + savings_needed.toLocaleString()
     const str_currently_saving_cash = '$' + Number(currently_saving_cash_monthly).toLocaleString()
@@ -70,54 +84,59 @@ export default class Results extends React.Component{
         <div className="Results" id="results">
           <div className='cards'>
             <a className='card' onClick={() => showModal('1', `${str_fi_age}`)} id="1">
-              <span class="material-icons-sharp circle">cake</span>
+              <span className="material-icons-sharp circle">cake</span>
               <span className='helper'>How old will I be when I reach financial independence?</span>
               <h2 className="number">{str_fi_age}</h2>
             </a>
             <a className='card' id="2" onClick={() => showModal('2', `${str_fi_year}`)}>
             <div>
-              <span class="material-icons-sharp circle">event</span>
+              <span className="material-icons-sharp circle">event</span>
               <span className='helper'>What year would I be able to retire?</span>
             </div>
               
               <h2 className="number">{str_fi_year}</h2>
             </a>
             <a className='card' id="3" onClick={() => showModal('3', `${str_fi_percent}`)}>
-              <span class="material-icons-sharp circle">data_usage</span>
+              <span className="material-icons-sharp circle">data_usage</span>
               <span className='helper'>Where am I in my journey?</span>
               <h2 className="number">{str_fi_percent}</h2>
             </a>
             <a className='card' id="4" onClick={() => showModal('4', `${str_savings_needed}`)}>
-            <span class="material-icons-sharp circle">account_balance</span>
+            <span className="material-icons-sharp circle">account_balance</span>
               <span className='helper'>How much will I need in retirement?</span>
               <h2 className="number">{str_savings_needed}</h2>
             </a>
             <a className='card' id="5" onClick={() => showModal('5', `${str_currently_saving_cash}`)}  value={currently_saving_cash}>
-              <span class="material-icons-sharp circle">savings</span>
+              <span className="material-icons-sharp circle">savings</span>
               <span className='helper'>How much money do I save each month?</span>
               <h2 className="number">{str_currently_saving_cash}</h2>
             </a>
             <a className='card' id="6" onClick={() => showModal('6', `${str_currently_saving_percent}`)}  value={currently_saving_percent}>
-            <span class="material-icons-sharp circle">
+            <span className="material-icons-sharp circle">
             thumb_up
             </span>
               <span className='helper'>How much of my income am I saving?</span>
               <h2 className="number">{str_currently_saving_percent}</h2>
             </a>
             <a className='card' id="7" onClick={() => showModal('7', `${str_retired_today_yearly}`)}  value={retired_today_yearly}>
-              <span class="material-icons-sharp circle">
+              <span className="material-icons-sharp circle">
               payments
               </span>
               <span className='helper'>If I retired today, how much would I be able to spend per year?</span>
               <h2 className="number">{str_retired_today_yearly}</h2>
             </a>
             <a className='card' onClick={() => showModal('8', `${str_retired_today_monthly}`)}  id="8" value={retired_today_monthly}>
-            <span class="material-icons-sharp circle">
+            <span className="material-icons-sharp circle">
             paid
             </span>
               <span className='helper'>If I retired today, how much would I be able to spend per month?</span>
               <h2 className="number">{str_retired_today_monthly}</h2>
             </a>
+          </div>
+          <div className="container">
+            <div className="content">
+              <p className="helper">Content of this Website is intended to be used and must be used for information and education purposes only. It is very important to do your own analysis before making any investment based on your own personal circumstances.</p>
+            </div>
           </div>
         </div>
       </>

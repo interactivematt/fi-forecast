@@ -99,6 +99,7 @@ export default class Forecast extends React.Component{
             forecast={this.state.forecast}
           ></Results>
         </section>
+        
       </>
     )
   }

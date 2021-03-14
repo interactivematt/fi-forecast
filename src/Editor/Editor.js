@@ -61,7 +61,7 @@ export default class Editor extends React.Component{
   render(){
     return(
       <div className="Editor">
-        <h3><b>Start here</b></h3>
+        <h2><b>Start here</b></h2>
         <p>Enter your details in the fields below for either yourself or household. Values are defaulted to the U.S. median.</p>
         <Form onSubmit={this.handleSubmit}>
           <label htmlFor='input-current-age'>
@@ -73,7 +73,6 @@ export default class Editor extends React.Component{
               placeholder='30' 
               name='current-age'
               defaultValue={this.context.forecast.current_age}
-              
             />
             <span className='helper'>Your age in years</span>
           </label>
@@ -125,7 +124,7 @@ export default class Editor extends React.Component{
             <span className='helper'>How much do you have in savings, investments, and property?</span>
           </label>
           <label htmlFor='input-future-spending'>
-            Est. spending in retirement
+            Est. annual spending in retirement
             <CurrencyInput 
               className="currency"
               placeholder="$" 
@@ -134,7 +133,7 @@ export default class Editor extends React.Component{
               name='future-spending'
               defaultValue={this.context.forecast.future_spending}
             />
-            <span className='helper'>How much do you plan to spend once you retire?</span>
+            <span className='helper'>How much do you plan to spend per year once you retire?</span>
           </label>
           <label htmlFor='input-roi'>
             Est. annual return on investment
@@ -148,7 +147,7 @@ export default class Editor extends React.Component{
             />
             <span className='helper'>How much interest do you earn on your portfolio annually?</span>
           </label>
-          <label htmlFor='input-withdrawal-rate' e-aria-disabled>
+          <label htmlFor='input-withdrawal-rate' >
             Planned withdrawal rate
             <PercentageInput
               className='percent'
